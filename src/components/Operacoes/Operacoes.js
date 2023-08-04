@@ -87,7 +87,7 @@ const Operacoes = () => {
         <button type="submit">Calcular</button>
       </form>
 
-      <ol className="todos">
+      <ol>
         {numeros.map((numero, index) => (
           <Item numero={numero} key={index} />
         ))}
