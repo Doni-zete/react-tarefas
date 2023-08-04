@@ -1,0 +1,60 @@
+.numerolist {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 0px 10px 15px -3px black;
+  border-radius: 10px;
+  padding: 5px;
+  border: 5px solid black;
+  background: #9af3bf;
+}
+
+.todo-item {
+  list-style-position: inside;
+  margin: 5px;
+  padding: 5px 15px;
+  border-radius: 10px;
+  background: #ced6e0;
+
+}
+
+.todo-register label {
+  display: block;
+  font-size: 14px;
+  color: #2d3436;
+}
+
+.todo-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-input input {
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  margin: 20px;
+  width: 28%;
+  
+}
+
+.todo-input button {
+  padding: 10px;
+  outline: none;
+  border: none;
+  background: #018538;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.operacoes-section {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+
+}
