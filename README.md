@@ -1,7 +1,8 @@
 ## Tarefa 2
 
 ### Instalação
-Baixe o codigo
-Abra o terminal do vs code
-Execute: npm i
-Rode usando: npm start
+
+1. Baixe o codigo
+2. Abra o terminal do vs code
+3. Execute: npm i
+4. Rode usando: npm start
