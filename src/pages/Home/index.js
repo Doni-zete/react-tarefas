@@ -27,7 +27,7 @@ const Home = () => {
       <section className="header-banner w-full">
         <div className="flex flex-col items-center justify-center h-full">
           <h1 className=" text-3xl md:text-5xl lg:text-5xl font-semibold text-red-400">
-            
+          Donilicia Sorvetes: Transformando momentos em doçura
           </h1>
         </div>
       </section>
