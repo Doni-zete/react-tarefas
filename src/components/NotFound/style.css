@@ -1,0 +1,22 @@
+.banner-not-found {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/error-404-not-found.png");
+  background-size: cover;
+  background-position: center
+}
+
+.button-not-found {
+  background-color: #f08080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}

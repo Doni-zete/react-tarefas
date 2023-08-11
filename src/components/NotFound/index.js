@@ -1,15 +1,13 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import sorvetBackground from "../../assets/error-404-not-found.png";
+import "./style.css";
 
 const NotFound = () => {
   return (
-    <div>
+    <div className="banner-not-found">
       <Link to="/">
-        <button className="bg-pink-300 hover:bg-pink-400 w-full py-2 px-4 rounded text-white">
-          Voltar
-        </button>
+        <button className="button-not-found">Voltar</button>
       </Link>
-      <img className="header-banner" src={sorvetBackground} alt="" />
     </div>
   );
 };

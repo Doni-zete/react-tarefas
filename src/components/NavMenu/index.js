@@ -9,11 +9,17 @@ const NavMenu = () => {
     <header className="bg-tranparent z-50 w-full bg-nav py-1 text-center text-white">
       <nav className="flex items-center max-w-screen-xl mx-auto px-6 py-3">
         <div className="flex flex-grow items-center">
-          <img
+
+        <Link to="/">
+        <img
             src={sorvetBackground}
             alt="logo"
             className="w-36 cursor-pointer"
           />
+       
+      </Link>
+         
+
           <h1 className="text-center text-2xl font-semibold text-white">
             Donilicia Sorvetes
           </h1>
