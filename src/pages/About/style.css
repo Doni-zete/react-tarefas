@@ -1,0 +1,14 @@
+.titulo {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.paragrafo {
+  font-family: 'Roboto', sans-serif;
+  background-color: #EF9F7D;
+  color: white;
+  font-size: 25px;
+}
