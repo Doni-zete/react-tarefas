@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ProductSorvete from "../ProductSorvete";
-// import ProductPicole from "../ProductPicole";
+import productsMock from "../../mock/products";
+
 import { Link } from "react-router-dom";
-// import ProductPicole from "../NotFound";
+
 
 const ProductList = () => {
   const [categoriaTab, setCategoriaTab] = useState("Copo de Sorvete");
+  const [products, setProducts] = useState(productsMock)
 
   return (
     <section className="my-12 max-w-screen-xl mx-auto px-3">
@@ -50,8 +52,10 @@ const ProductList = () => {
       </div>
 
       <div className="grid  grid-cols-4">
-        {/* {categoriaTab === "Copo de Sorvete" && } */}
-        <ProductSorvete />
+   {products.map(product =>(
+     <ProductSorvete key={product._id} product={product}/>
+    
+   ))}
         {/* <ProductPicole /> */}
       </div>
     </section>
