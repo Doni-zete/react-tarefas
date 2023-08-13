@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import sorvetBackground from "../../assets/copo-sorvete1.png";
 
 const Login = () => {
   const [nomeText, setNomeText] = useState("");
@@ -24,13 +25,14 @@ const Login = () => {
   };
 
   return (
-    <section className="flex justify-center items-center h-screen m-10">
-      <div className="w-full max-w-xs">
+    <main className="h-screen w-full  banner">
+      <div className="flex flex-col items-center pt-20 h-screen">
+        <img className="w-52" src={sorvetBackground} alt="logo tipo da sorveteria" />
         <form
-          className="bg-red-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-red-200 shadow-lg rounded-lg w-96 px-4 py-2"
           onSubmit={handleSubmit}
         >
-          <div className="mb-4">
+          <div className="mb-6">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="username"
@@ -38,7 +40,7 @@ const Login = () => {
               Nome de usuário:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="username"
               type="text"
               placeholder="Username"
@@ -56,7 +58,7 @@ const Login = () => {
               Senha:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="password"
               type="password"
               placeholder="*****"
@@ -68,13 +70,15 @@ const Login = () => {
 
           <button
             type="submit"
-            className="bg-pink-300 hover:bg-green-500 w-full py-2 px-4 rounded text-white"
+            className="bg-primary hover:bg-pink-300 w-full focus:ring-4 mt-6 transition duration-300 py-3 px-4 rounded text-white"
           >
             Entrar
           </button>
+
+          <p className="text-base text-primary text-center my-6 hover:underline">Precisa de uma conta?</p>
         </form>
       </div>
-    </section>
+    </main>
   );
 };
 

@@ -4,10 +4,9 @@ import productsMock from "../../mock/products";
 
 import { Link } from "react-router-dom";
 
-
 const ProductList = () => {
   const [categoriaTab, setCategoriaTab] = useState("Copo de Sorvete");
-  const [products, setProducts] = useState(productsMock)
+  const [products, setProducts] = useState(productsMock);
 
   return (
     <section className="my-12 max-w-screen-xl mx-auto px-3">
@@ -47,15 +46,13 @@ const ProductList = () => {
           >
             Pote de Sorvete
           </Link>
-      
         </p>
       </div>
 
       <div className="grid  grid-cols-4">
-   {products.map(product =>(
-     <ProductSorvete key={product._id} product={product}/>
-    
-   ))}
+        {products.map((product) => (
+          <ProductSorvete key={product._id} product={product} />
+        ))}
         {/* <ProductPicole /> */}
       </div>
     </section>

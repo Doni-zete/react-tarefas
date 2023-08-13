@@ -26,6 +26,10 @@ body {
   background: #A2697C;
 }
 
+.text-primary {
+  color: #A2697C;
+}
+
 .bg-nav {
   background: #D298AA;
 }
@@ -35,8 +39,16 @@ body {
   height: 350px;
   background-repeat: no-repeat;
   background-position: top;
-
   background-size: cover;
 }
 
+
+.banner{
+  background-image: url('../src/assets/background-sorve2.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+
+
+}
 
