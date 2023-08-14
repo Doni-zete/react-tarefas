@@ -1,51 +1,61 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import sorvetBackground from "../../assets/copo-sorvete1.png";
 
 const Login = () => {
-  const [nomeText, setNomeText] = useState("");
-  const [senhaText, setSenhaText] = useState("");
+  const [inputValues, setInputValues] = useState({
+    email: "",
+    senha: "",
+  });
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleChangeValues = (event) => {
+    setInputValues({
+      ...inputValues,
+      [event.target.name]: event.target.value,
+    });
+    console.log(inputValues);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (nomeText.trim() === "" || senhaText.trim() === "") {
-      return;
-    }
-    navigate("/", { state: { nomes: [nomeText] } });
-  };
-
-  const handleChangeNome = (event) => {
-    setNomeText(event.target.value);
-  };
-
-  const handleChangeSenha = (event) => {
-    setSenhaText(event.target.value);
+    const response = await fetch("http://localhost:3000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputValues),
+    });
+    console.log(response)
+    navigate("/");
   };
 
   return (
     <main className="h-screen w-full  banner">
-      <div className="flex flex-col items-center pt-20 h-screen">
-        <img className="w-52" src={sorvetBackground} alt="logo tipo da sorveteria" />
+      <div className="flex flex-col items-center h-screen">
+        <img
+          className="w-40"
+          src={sorvetBackground}
+          alt="logo tipo da sorveteria"
+        />
         <form
-          className="bg-red-200 shadow-lg rounded-lg w-96 px-4 py-2"
+          className="bg-red-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
           <div className="mb-6">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
+              htmlFor="email"
             >
-              Nome de usuário:
+              Email:
             </label>
             <input
               className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
-              id="username"
+              id="email"
               type="text"
-              placeholder="Username"
-              value={nomeText}
-              onChange={handleChangeNome}
+              placeholder="email"
+              name="email"
+              onChange={handleChangeValues} //onchange e dispara quando tem mudança no input
               required
             />
           </div>
@@ -53,17 +63,17 @@ const Login = () => {
           <div className="mb-6">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
+              htmlFor="senha"
             >
               Senha:
             </label>
             <input
               className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
-              id="password"
+              id="senha"
               type="password"
               placeholder="*****"
-              value={senhaText}
-              onChange={handleChangeSenha}
+              name="senha"
+              onChange={handleChangeValues}
               required
             />
           </div>
@@ -75,7 +85,9 @@ const Login = () => {
             Entrar
           </button>
 
-          <p className="text-base text-primary text-center my-6 hover:underline">Precisa de uma conta?</p>
+          <p className="text-base text-primary text-center my-6 hover:underline">
+            Precisa de uma conta?
+          </p>
         </form>
       </div>
     </main>
