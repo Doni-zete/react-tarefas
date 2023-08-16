@@ -11,9 +11,9 @@ const NavMenu = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="bg-tranparent z-50 w-full bg-nav py-1 text-center text-white">
+    <header className="bg-transparent z-50 w-full bg-nav py-1 text-center text-white">
       <nav className="flex items-center max-w-screen-xl mx-auto px-6 py-3">
-        <div className="flex flex-grow items-center">
+        <div className="flex items-center flex-grow">
           <Link to="/">
             <img
               src={sorvetBackground}
@@ -30,17 +30,17 @@ const NavMenu = () => {
         {userLogged ? (
           <div className="flex items-center justify-end space-x-4">
             <div className="relative flex cursor-pointer">
-              <span className="bg-primary w-5  h-5 rounded-full  p-1 flex items-center justify-center text-white absolute -right-2 -top-2">
+              <span className="bg-primary w-5 h-5 rounded-full p-1 flex items-center justify-center text-white absolute -right-2 -top-2">
                 2
               </span>
               <BsCart className="w-8 h-8 cursor-pointer" />
             </div>
             <img src="" alt="" />
-            <p className="text-gray-700">Bem vindo,</p>
+            <p className="hidden sm:inline text-gray-700">Bem vindo,</p>
             <MdLogout className="w-8 h-8 cursor-pointer" onClick={logoutUser} />
           </div>
         ) : (
-          <div className="flex items-center justify-center space-x-6">
+          <div className="hidden sm:flex items-center justify-center space-x-6">
             <button>Home</button>
             <button onClick={() => navigate('/login')}>Login</button>
             <button>Register</button>
@@ -53,3 +53,6 @@ const NavMenu = () => {
 };
 
 export default NavMenu;
+
+
+

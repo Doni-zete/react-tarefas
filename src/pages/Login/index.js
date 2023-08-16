@@ -8,6 +8,7 @@ const Login = () => {
     senha: '',
   });
 
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const { loginUser } = useContext(AuthContext);
 
   const handleChangeValues = (event) => {
@@ -20,19 +21,24 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    loginUser(inputValues);
+
+    const loginSuccess = await loginUser(inputValues);
+
+    if (!loginSuccess) {
+      setShowErrorModal(true);
+    }
   };
 
   return (
-    <main className="h-screen w-full  banner">
-      <div className="flex flex-col items-center h-screen">
+    <main className="h-screen w-full  banner bg-gray-100 flex justify-center items-center ">
+      <div className="w-full sm:max-w-xs  rounded-lg  m-3">
         <img
-          className="w-40"
+          className="w-20 mx-auto mb-4"
           src={sorvetBackground}
           alt="logo tipo da sorveteria"
         />
         <form
-          className="bg-red-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="bg-red-200 shadow-md rounded px-8 pt-6 pb-8 mb-4 "
           onSubmit={handleSubmit}
         >
           <div className="mb-6">
@@ -48,7 +54,7 @@ const Login = () => {
               type="text"
               placeholder="email"
               name="email"
-              onChange={handleChangeValues} //onchange e dispara quando tem mudança no input
+              onChange={handleChangeValues}
               required
             />
           </div>
@@ -83,6 +89,24 @@ const Login = () => {
           </p>
         </form>
       </div>
+
+      {showErrorModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-md shadow-lg">
+            <p className="text-red-600 text-center">
+              ATENÇÃO! 
+              
+            </p>
+            <p className="text-center">Email ou senha incorretos. Por favor, tente novamente.</p>
+            <button
+              onClick={() => setShowErrorModal(false)}
+              className="block mx-auto mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-pink-300"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
