@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import sorvetBackground from "../../assets/copo-sorvete1.png";
+import React, { useContext, useState } from 'react';
+import sorvetBackground from '../../assets/copo-sorvete1.png';
+import { AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
   const [inputValues, setInputValues] = useState({
-    email: "",
-    senha: "",
+    email: '',
+    senha: '',
   });
-  const navigate = useNavigate();
+
+  const { loginUser } = useContext(AuthContext);
 
   const handleChangeValues = (event) => {
     setInputValues({
@@ -19,15 +20,7 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:3000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputValues),
-    });
-    console.log(response)
-    navigate("/");
+    loginUser(inputValues);
   };
 
   return (
