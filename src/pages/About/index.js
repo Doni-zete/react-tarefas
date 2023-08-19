@@ -1,14 +1,12 @@
-import React from "react";
-import "./style.css";
-
+import React from 'react';
 const About = () => {
   return (
-    <section className="flex justify-center items-center h-screen ">
+    <section className="min-h-screen w-full banner bg-gray-100 flex justify-center items-center">
       <div className="w-full max-w-5xl">
-        <h2 className="flex justify-center items-center titulo">
-        Donilicia Sorvetes: Transformando momentos em doçura
+        <h2 className="text-center text-2xl rounded-xl bg-gray-100 font-bold p-6">
+          Donilicia Sorvetes: Transformando momentos em doçura
         </h2>
-        <p className="paragrafo">
+        <p className="text-center text-xl rounded-xl bg-gray-100  p-6">
           Mussum Ipsum, cacilds vidis litro abertis. Si num tem leite então bota
           uma pinga aí cumpadi! Em pé sem cair, deitado sem dormir, sentado sem
           cochilar e fazendo pose. Delegadis gente finis, bibendum egestas augue
