@@ -7,12 +7,16 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const { userLogged, loading, loginUser, logoutUser } = useAuth();
 
+  const currentUser = localStorage.getItem('useInfo');
+
   if (loading) {
     return <h1>Loading</h1>;
   }
 
   return (
-    <AuthContext.Provider value={{ userLogged, loginUser, logoutUser }}>
+    <AuthContext.Provider
+      value={{ currentUser, userLogged, loginUser, logoutUser }}
+    >
       {children}
     </AuthContext.Provider>
   );
