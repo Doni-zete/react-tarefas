@@ -42,13 +42,17 @@ body {
   background-size: cover;
 }
 
-
-.banner{
+.banner {
   background-image: url('../src/assets/background-sorve2.png');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-
-
 }
 
+.banner-not-found {
+  background-image: url("../src/assets/error-404-not-found.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 100%;
+
+}
