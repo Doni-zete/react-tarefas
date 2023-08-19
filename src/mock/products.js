@@ -69,7 +69,7 @@ const productsMock = [
     paradis? Toma um mé que o mundo vai girarzis! Sapien in monti palavris
     qui num significa nadis i pareci latim. Mé faiz elementum girarzis,
     nisi eros vermeio. Per aumento de cachacis, eu reclamis.`,
-    price: "R$50.000,00",
+    price: "R$5,00",
   },
 
   {
