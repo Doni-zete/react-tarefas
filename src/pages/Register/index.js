@@ -1,34 +1,37 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import sorvetBackground from '../../assets/copo-sorvete1.png';
 
 const Register = () => {
   const navigate = useNavigate();
   const [isRegistered, setIsRegistered] = useState(false);
-  const [username, setUsername] = useState("");
-  const [senha, setSenha] = useState("");
-  const [email, setEmail] = useState("");
-  const [endereco, setEndereco] = useState("");
-  const [telefone, setTelefone] = useState("");
+  const [username, setUsername] = useState('');
+  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('');
+  const [endereco, setEndereco] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("formulario enviado");
+    console.log('formulario enviado');
     setIsRegistered(true);
     setTimeout(() => {
       setIsRegistered(false);
-      navigate("/login");
+      navigate('/login');
     }, 3000);
-    setUsername("");
-    setSenha("");
-    setEmail("");
-    setEndereco("");
-    setTelefone("");
+    setUsername('');
+    setSenha('');
+    setEmail('');
+    setEndereco('');
   };
 
   return (
-    <section className="flex justify-center items-center h-screen m-10">
-      <div className="w-full max-w-xs ">
-        
+    <main className="h-screen w-full  banner bg-gray-100 flex justify-center items-center ">
+      <div className="w-full sm:max-w-xs  rounded-lg  m-6">
+        <img
+          className="w-20 mx-auto mb-4"
+          src={sorvetBackground}
+          alt="logo tipo da sorveteria"
+        />
         <form
           className="bg-red-200 shadow-md rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
@@ -41,16 +44,16 @@ const Register = () => {
               Nome de usuário:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="username"
               type="text"
               placeholder="Username"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
-              required 
+              required
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="password"
@@ -58,16 +61,16 @@ const Register = () => {
               Senha:
             </label>
             <input
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="password"
               type="password"
               placeholder="*****"
               value={senha}
               onChange={(event) => setSenha(event.target.value)}
-              required 
+              required
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="email"
@@ -75,13 +78,13 @@ const Register = () => {
               Email:
             </label>
             <input
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="email"
               type="email"
               placeholder="joão@email.com"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              required 
+              required
             />
           </div>
           <div className="mb-6">
@@ -92,34 +95,18 @@ const Register = () => {
               Endereço:
             </label>
             <input
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-4 py-3 rounded-lg ring-red-200 focus:ring-4 focus:outline-none transition duration-300 focus:shadow-xl"
               id="address"
               type="text"
               placeholder="Av. Pedro de Lara, n°1000"
               value={endereco}
               onChange={(event) => setEndereco(event.target.value)}
-              required 
+              required
             />
           </div>
-          <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="telefone"
-            >
-              Telefone:
-            </label>
-            <input
-              className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-800 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="telefone"
-              type="telefone"
-              placeholder="(99) 99999-9999"
-              value={telefone}
-              onChange={(event) => setTelefone(event.target.value)}
-              required 
-            />
-          </div>
+
           <button
-            className="bg-pink-300 hover:bg-green-500 w-full py-2 px-4 rounded text-white"
+            className="bg-primary hover:bg-pink-300 w-full focus:ring-4 mt-6 transition duration-300 py-3 px-4 rounded text-white"
             type="submit"
           >
             Registrar
@@ -131,7 +118,7 @@ const Register = () => {
           </div>
         )}
       </div>
-    </section>
+    </main>
   );
 };
 
