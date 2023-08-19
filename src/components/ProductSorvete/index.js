@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ProductSorvete = ({ product }) => {
   return (
     <>
-      <div className="flex  justify-start hover:cursor-pointer py-3 px-3.5">
+      <main className="flex min-h-screen w-full  justify-start hover:cursor-pointer py-5 px-3.5">
         <div
           key={product._id}
           className=" bg-white border border-gray-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 rounded-lg "
@@ -29,7 +29,7 @@ const ProductSorvete = ({ product }) => {
             </button>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };
