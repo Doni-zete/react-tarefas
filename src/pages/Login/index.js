@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import sorvetBackground from '../../assets/copo-sorvete1.png';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -90,9 +90,11 @@ const Login = () => {
             Entrar
           </button>
 
-          <p className="text-base text-primary text-center my-6 hover:underline">
-            Precisa de uma conta?
-          </p>
+          <Link to="/register">
+            <p className="text-base text-primary text-center my-6 hover:underline">
+              Precisa de uma conta?
+            </p>
+          </Link>
         </form>
       </div>
 
