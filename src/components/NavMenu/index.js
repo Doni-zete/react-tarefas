@@ -33,11 +33,13 @@ const NavMenu = () => {
               alt="logo"
               className="w-36 cursor-pointer"
             />
+            
           </Link>
           <div className="flex-col">
             <h1 className="text-center text-2xl font-semibold text-white">
               Donilicia Sorvetes
             </h1>
+
           </div>
         </div>
 
@@ -73,9 +75,9 @@ const NavMenu = () => {
               </span>
               <BsCart className="w-8 h-8 cursor-pointer my-3" />
             </div>
-            <p className="text-gray-700 text-xs font-bold ">{userEmail}</p>
             <MdLogout className="w-8 h-8 cursor-pointer" onClick={logoutUser} />
-            <div className="flex"></div>
+            <p className="text-gray-700 text-xs font-bold ">{userEmail}</p>
+            
           </div>
         ) : (
           <div className="hidden sm:flex items-center justify-center space-x-6">
@@ -102,6 +104,8 @@ const NavMenu = () => {
                 Register
               </Link>
             </button>
+
+            
           </div>
         )}
       </nav>
