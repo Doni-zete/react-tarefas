@@ -1,15 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
+import React from 'react';
+import './style.css';
 
 const NotFound = () => {
-  return (
-    <div className="banner-not-found">
-      <Link to="/">
-        <button className="button-not-found">Voltar</button>
-      </Link>
-    </div>
-  );
+  return <div className="h-screen banner-not-found"></div>;
 };
 
 export default NotFound;
