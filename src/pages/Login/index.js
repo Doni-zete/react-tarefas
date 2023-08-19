@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import sorvetBackground from '../../assets/copo-sorvete1.png';
 import { AuthContext } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [inputValues, setInputValues] = useState({
     email: '',
     senha: '',
@@ -12,11 +14,11 @@ const Login = () => {
   const { loginUser } = useContext(AuthContext);
 
   const handleChangeValues = (event) => {
+    const { name, value } = event.target;
     setInputValues({
       ...inputValues,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
-    console.log(inputValues);
   };
 
   const handleSubmit = async (event) => {
@@ -24,7 +26,9 @@ const Login = () => {
 
     const loginSuccess = await loginUser(inputValues);
 
-    if (!loginSuccess) {
+    if (loginSuccess) {
+      navigate('/', { state: { email: inputValues.email } });
+    } else {
       setShowErrorModal(true);
     }
   };
@@ -54,6 +58,7 @@ const Login = () => {
               type="text"
               placeholder="email"
               name="email"
+              value={inputValues.email}
               onChange={handleChangeValues}
               required
             />
@@ -72,13 +77,14 @@ const Login = () => {
               type="password"
               placeholder="*****"
               name="senha"
+              value={inputValues.senha}
               onChange={handleChangeValues}
               required
             />
           </div>
 
           <button
-            type="submit"
+            onClick={handleSubmit}
             className="bg-primary hover:bg-pink-300 w-full focus:ring-4 mt-6 transition duration-300 py-3 px-4 rounded text-white"
           >
             Entrar
@@ -93,11 +99,10 @@ const Login = () => {
       {showErrorModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-md shadow-lg">
-            <p className="text-red-600 text-center">
-              ATENÇÃO! 
-              
+            <p className="text-red-600 text-center">ATENÇÃO!</p>
+            <p className="text-center">
+              Email ou senha incorretos. Por favor, tente novamente.
             </p>
-            <p className="text-center">Email ou senha incorretos. Por favor, tente novamente.</p>
             <button
               onClick={() => setShowErrorModal(false)}
               className="block mx-auto mt-4 px-4 py-2 bg-primary text-white rounded hover:bg-pink-300"
