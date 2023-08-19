@@ -13,14 +13,19 @@ const NavMenu = () => {
   const { userLogged, logoutUser } = useContext(AuthContext);
 
   const [userEmail, setUserEmail] = useState('');
-  const [token, setToken] = useState('');
 
   useEffect(() => {
-    if (!userEmail && !token) {
-      setUserEmail(localStorage.getItem('email'));
-      setToken(localStorage.getItem('token'));
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail !== userEmail) {
+      setUserEmail(storedEmail);
     }
-  }, [token, userEmail]);
+
+    if (!userEmail) {
+      setUserEmail(storedEmail);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localStorage.getItem('email')]);
+
   // const navigate = useNavigate();
   //
   return (
@@ -33,13 +38,11 @@ const NavMenu = () => {
               alt="logo"
               className="w-36 cursor-pointer"
             />
-            
           </Link>
           <div className="flex-col">
             <h1 className="text-center text-2xl font-semibold text-white">
               Donilicia Sorvetes
             </h1>
-
           </div>
         </div>
 
@@ -77,7 +80,6 @@ const NavMenu = () => {
             </div>
             <MdLogout className="w-8 h-8 cursor-pointer" onClick={logoutUser} />
             <p className="text-gray-700 text-xs font-bold ">{userEmail}</p>
-            
           </div>
         ) : (
           <div className="hidden sm:flex items-center justify-center space-x-6">
@@ -104,8 +106,6 @@ const NavMenu = () => {
                 Register
               </Link>
             </button>
-
-            
           </div>
         )}
       </nav>
