@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const useAuth = () => {
   const [userLogged, setUserLogged] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Adicionado estado para armazenar erros
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+const location = useLocation();
+console.log('location',location)
 
   useEffect(() => {
     const userInfo = localStorage.getItem('userInfo');
@@ -29,12 +32,17 @@ const useAuth = () => {
 
       if (response.ok) {
         const data = await response.json();
+
         localStorage.setItem('userInfo', JSON.stringify(data));
+
+        localStorage.setItem('email', data.email);
+        localStorage.setItem('token', data.token);
+
         navigate('/');
         setUserLogged(true);
-        setError(null); // Limpar o erro se o login for bem-sucedido
+        setError(null);
       } else {
-        setError('Email ou senha incorretos'); // Definir a mensagem de erro
+        setError('Email ou senha incorretos');
       }
     } catch (error) {
       console.error('Ocorreu um erro:', error);
